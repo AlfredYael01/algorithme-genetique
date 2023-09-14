@@ -27,7 +27,7 @@ def creer_villes():
     return villesList
 
 
-def creation_individues(villes):
+def creer_individues(villes):
 
     for n in range(0, 100):
 
