@@ -55,7 +55,7 @@ def calculer_distances(individues):
         distance = 0
         i = 0
 
-        # Dans le 'while' on me sure la distance de chaque parcours
+        # Dans le 'while' on mesure la distance de chaque parcours
         while i <= 9:
 
             # Quand on arrive a la derniere ville, on mesure la distance entre celle-ci et la premiere
