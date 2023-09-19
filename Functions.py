@@ -77,5 +77,8 @@ def calculer_distances(individues):
 
     return distances
 
+def dictionnaire50(dictIndivDist):
+    dictIndivDist50 = {k: dictIndivDist[k] for k in list(dictIndivDist)[:50]}
+    return dictIndivDist50
 
 
