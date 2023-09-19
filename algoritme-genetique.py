@@ -1,5 +1,4 @@
 import random
-
 import Functions as fc
 
 villes = fc.creer_villes()
