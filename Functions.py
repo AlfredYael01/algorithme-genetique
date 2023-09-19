@@ -85,3 +85,66 @@ def dictionnaire50(dictIndivDist):
     return dictIndivDist50
 
 
+def croisement(dic50):
+
+    generation1 = []
+    count = 0
+    keys = list(dic50.keys())
+    doubles1 = []
+    doubles2 = []
+
+    while count <= 24:
+
+        doubles1.clear()
+        doubles2.clear()
+        fils1 = ''
+        fils2 = ''
+
+        # Sélection aleatoire des parents
+        parent1 = random.choice(keys)
+        parent2 = random.choice(keys)
+
+        # Croisement
+        fils1 = parent1.replace(parent1[6:9], parent2[6:9])
+        fils2 = parent2.replace(parent2[6:9], parent1[6:9])
+
+        # Cherche pour des doubles
+        for f1 in fils1:
+
+            nb = fils1.count(f1)
+
+            if nb >= 2 and f1 not in doubles1:
+                doubles1.append(f1)
+
+        for f2 in fils2:
+
+            nb = fils2.count(f2)
+
+            if nb >= 2 and f2 not in doubles2:
+                doubles2.append(f2)
+
+        # Eliminations des doubles
+        if len(doubles1) > 0 and len(doubles2) > 0:
+
+            fils1 = fils1.replace(doubles1[0], doubles2[0], 1)
+            fils2 = fils2.replace(doubles2[0], doubles1[0], 1)
+
+            if len(doubles1) > 1 and len(doubles2) >= 1:
+                fils1 = fils1.replace(doubles1[1], doubles2[1], 1)
+                fils2 = fils2.replace(doubles2[1], doubles1[1], 1)
+
+        generation1.append(fils1)
+        generation1.append(fils2)
+
+        count += 1
+
+    print(count)
+    print(generation1)
+    print(len(generation1))
+
+    return generation1
+
+
+# Mutation
+
+
