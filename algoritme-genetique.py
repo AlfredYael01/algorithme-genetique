@@ -53,7 +53,7 @@ print(cheminPlusCourt)
 
 # affichage des croisement de 2 individues
 
-fc.plot2(cheminPlusCourt, distanceOptimale)
+fc.plot(cheminPlusCourt, distanceOptimale)
 
 
 
