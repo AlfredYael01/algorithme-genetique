@@ -1,12 +1,9 @@
-import numpy as np
 import random as random
 import matplotlib.pyplot as plt
 import math
-import Functions as fc
 
 
 class Individu:
-
     parcoursList = []
     parcoursStr = ""
     distance = 0
@@ -21,7 +18,7 @@ class Individu:
         self.coordonneesVilles = coordonneesVilles
         self.coordonneesVillesStr = coordonneesVillesStr
         self.creerParcours()
-        self.calculerDistace()
+        self.calculerDistance()
 
     def creerParcours(self):
 
@@ -32,25 +29,25 @@ class Individu:
 
     def toStr(self, parcours):
 
+        self.parcoursStr = ''
+
         for ville in parcours:
             self.parcoursStr += str(ville)
 
     def toInt(self, parcoursStr):
 
+        self.parcoursList = []
+
         for ville in parcoursStr:
             self.parcoursList.append(int(ville))
 
-    def calculerDistace(self):
+    def calculerDistance(self):
 
+        self.distance = 0
         i = 0
 
         # Dans le 'while' on mesure la distance entre chaque ville
         while i < 10:
-
-            # Quand on arrive a la derniere ville, on stop le while
-            #if i == 9:
-                #break
-
             ville1 = self.parcoursList[i]
             ville2 = self.parcoursList[i + 1]
 
@@ -60,8 +57,21 @@ class Individu:
 
     def calculer_distance_entre_2_villes(self, ville1, ville2):
 
-        distance = math.sqrt((math.pow(self.coordonneesVilles[ville2][0] - self.coordonneesVilles[ville1][0], 2)) + (
-            math.pow(self.coordonneesVilles[ville2][1] - self.coordonneesVilles[ville1][1], 2)))
+        distance = math.sqrt((math.pow(self.coordonneesVilles[ville2][0] - self.coordonneesVilles[ville1][0], 2)) +
+                             (math.pow(self.coordonneesVilles[ville2][1] - self.coordonneesVilles[ville1][1], 2)))
 
         return distance
 
+    def plot(self):
+
+        x = []
+        y = []
+
+        for ville in self.parcoursList:
+            x.append(self.coordonneesVilles[ville][0])
+            y.append(self.coordonneesVilles[ville][1])
+
+        plt.plot(x, y, marker='o')
+
+        for i, coordonneesVille in enumerate(self.coordonnees):
+            plt.text(coordonneesVille[0], coordonneesVille[1], str(i), fontsize=12)
