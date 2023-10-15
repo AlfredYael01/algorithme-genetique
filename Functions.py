@@ -80,7 +80,10 @@ def croisementOOP(listIndividues50):
 
 # Sélection aleatoire des parents
         parent1 = random.choice(listIndividues50)
+        listIndividues50.remove(parent1)
         parent2 = random.choice(listIndividues50)
+        listIndividues50.remove(parent2)
+
 
 # Sauvegarde des parcours des parents dans des variables
         parcours1 = parent1.parcoursList
@@ -192,6 +195,16 @@ def croisementOOP(listIndividues50):
 
 # Mutation
 
+
+def mutation(generation1):
+    
+    for individu in generation1:
+        
+        individu.mutation()
+        
+    return generation1
+        
+        
 
 
 

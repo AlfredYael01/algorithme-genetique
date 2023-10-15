@@ -44,6 +44,13 @@ for f1 in parcours1:
 print("Doublons: ", doubles)
 print("Distance : ", generation1[0].distance)
 print("Nb generation1: ", len(generation1))
+print()
+
+# mutation
+generation1Mutation = fc.mutation(generation1)
+generation1Mutation.sort(key=lambda individu: individu.distance)
 
 # Plot
-generation1[0].plot()
+generation1Mutation[0].plot()
+print("Parcours plus court :", generation1Mutation[0].parcoursList)
+print("Distance : ", generation1Mutation[0].distance)

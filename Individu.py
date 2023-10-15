@@ -75,3 +75,14 @@ class Individu:
 
         for i, coordonneesVille in enumerate(self.coordonnees):
             plt.text(coordonneesVille[0], coordonneesVille[1], str(i), fontsize=12)
+
+    def mutation(self):
+        
+        ville1 = self.parcoursList[3]
+        ville2 = self.parcoursList[8]
+
+        self.parcoursList[4] = ville2
+        self.parcoursList[5] = ville1
+        
+        self.calculerDistance()
+        
