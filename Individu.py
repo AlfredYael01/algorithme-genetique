@@ -81,8 +81,8 @@ class Individu:
         ville1 = self.parcoursList[3]
         ville2 = self.parcoursList[8]
 
-        self.parcoursList[4] = ville2
-        self.parcoursList[5] = ville1
+        self.parcoursList[3] = ville2
+        self.parcoursList[8] = ville1
         
         self.calculerDistance()
         
