@@ -47,7 +47,8 @@ class Individu:
         i = 0
 
         # Dans le 'while' on mesure la distance entre chaque ville
-        while i < 10:
+        #while i < 10:
+        while i < len(self.villes):
             ville1 = self.parcoursList[i]
             ville2 = self.parcoursList[i + 1]
 
@@ -78,11 +79,17 @@ class Individu:
 
     def mutation(self):
         
-        ville1 = self.parcoursList[3]
-        ville2 = self.parcoursList[8]
+        # ville1 = self.parcoursList[3]
+        # ville2 = self.parcoursList[8]
+        #
+        # self.parcoursList[3] = ville2
+        # self.parcoursList[8] = ville1
 
-        self.parcoursList[3] = ville2
-        self.parcoursList[8] = ville1
-        
+        ville1 = self.parcoursList[1]
+        ville2 = self.parcoursList[5]
+
+        self.parcoursList[1] = ville2
+        self.parcoursList[5] = ville1
+
         self.calculerDistance()
         
