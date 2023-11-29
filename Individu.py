@@ -78,18 +78,31 @@ class Individu:
             plt.text(coordonneesVille[0], coordonneesVille[1], str(i), fontsize=12)
 
     def mutation(self):
-        
+
+        ville1 = []
+        ville2 = []
+
+        # ville1 = self.parcoursList[1]
+        # ville2 = self.parcoursList[5]
+        #
+        # self.parcoursList[1] = ville2
+        # self.parcoursList[5] = ville1
+
         # ville1 = self.parcoursList[3]
         # ville2 = self.parcoursList[8]
         #
         # self.parcoursList[3] = ville2
         # self.parcoursList[8] = ville1
 
-        ville1 = self.parcoursList[1]
-        ville2 = self.parcoursList[5]
+        ville1.append(self.parcoursList[1])
+        ville1.append(self.parcoursList[2])
+        ville2.append(self.parcoursList[18])
+        ville2.append(self.parcoursList[19])
 
-        self.parcoursList[1] = ville2
-        self.parcoursList[5] = ville1
+        self.parcoursList[1] = ville2[0]
+        self.parcoursList[2] = ville2[1]
+        self.parcoursList[18] = ville1[0]
+        self.parcoursList[19] = ville1[1]
 
         self.calculerDistance()
         
