@@ -15,7 +15,6 @@ listIndividues = fc.creerIndividues(villes, villesStr, x, y, coordonnees, coordo
 listIndividues.sort(key=lambda individu: individu.distance)
 listIndividues = listIndividues[:50]
 
-
 print("Parcours plus court premiers individues : ", listIndividues[0].parcoursList)
 print("Distance :", listIndividues[0].distance)
 print("Nb individues : ", len(listIndividues))
