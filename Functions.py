@@ -2,7 +2,7 @@ import numpy as np
 import random as random
 import matplotlib.pyplot as plt
 import Individu as Indiv
-
+import copy
 
 individues = []
 distances = []
@@ -65,7 +65,7 @@ def plot(individu):
 
 def croisementOOP6(individues):
     nbIndividues = len(individues)
-    listIndividues = individues
+    listIndividues = copy.deepcopy(individues)
     generation = []
     count = 0
     doubles1 = []
@@ -105,7 +105,6 @@ def croisementOOP6(individues):
             # parcours2[n] = morceau2[n - 6]
             parcours1[n] = morceau1[n - 2]
             parcours2[n] = morceau2[n - 2]
-
 
 
         for f1 in parcours1:
@@ -203,7 +202,7 @@ def croisementOOP6(individues):
 
 def croisementOOP10(individues):
     nbIndividues = len(individues)
-    listIndividues = individues
+    listIndividues = copy.deepcopy(individues)
     generation = []
     count = 0
     doubles1 = []
@@ -333,7 +332,7 @@ def croisementOOP10(individues):
 
 def croisementOOP20(individues):
     nbIndividues = len(individues)
-    listIndividues = individues
+    listIndividues = copy.deepcopy(individues)
     generation = []
     count = 0
     doubles1 = []
@@ -485,7 +484,7 @@ def croisementOOP20(individues):
 
 def croisementOOP100(individues):
     nbIndividues = len(individues)
-    listIndividues = individues
+    listIndividues = copy.deepcopy(individues)        
     generation = []
     count = 0
     doubles1 = []
@@ -675,11 +674,9 @@ def croisementOOP100(individues):
 
 
 
-
-
 def croisementOOP250(individues):
     nbIndividues = len(individues)
-    listIndividues = individues
+    listIndividues = copy.deepcopy(individues)
     generation = []
     count = 0
     doubles1 = []
@@ -897,11 +894,16 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
                 
             individues = croisementOOP6(generation)
             #individues.sort(key=lambda individu: individu.distance, reverse=True)
-            
             individues = mutation(individues)
-            individues.sort(key=lambda individu: individu.distance)
+            #individues.sort(key=lambda individu: individu.distance)
             
-            generation = individues
+            generation.extend(individues)
+                
+            print(f"Censé d'être 100 : {len(generation)}")
+            generation.sort(key=lambda individu: individu.distance)
+            generation = generation[:50]
+            print(f"Censé d'être 50 : {len(generation)}")
+
             meilleurIndividueParGeneration.append(generation[0])
     
     
@@ -910,6 +912,7 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
             print(f"Generation {count} :")
             print("Parcours plus court :", generation[0].parcoursList)
             print("Distance :", generation[0].distance)
+            print()
     
         meilleurIndividueParGeneration.sort(key=lambda individu: individu.distance)
         dicList.sort(key=lambda item: item["distance"])
@@ -918,8 +921,8 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
         print(f"Meilleur individu : {dicList[0]['parcours']}")
         print(f"Distance : {dicList[0]['distance']}")
         print(f"Generation : {dicList[0]['generation']}")
+        print()
         plot(meilleurIndividueParGeneration[0])
-    
         for v in meilleurIndividueParGeneration[0].parcoursList:
             
             nb = meilleurIndividueParGeneration[0].parcoursList.count(v)
@@ -946,9 +949,14 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
             #individues.sort(key=lambda individu: individu.distance, reverse=True)
             
             individues = mutation(individues)
-            individues.sort(key=lambda individu: individu.distance)
+            #individues.sort(key=lambda individu: individu.distance)
             
-            generation = individues
+            generation.extend(individues)
+            
+            generation.sort(key=lambda individu: individu.distance)
+            print(f"Censé d'être 100 : {len(generation)}")
+            generation = generation[:50]
+            print(f"Censé d'être 50 : {len(generation)}")
             meilleurIndividueParGeneration.append(generation[0])
     
     
@@ -965,6 +973,8 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
         print(f"Meilleur individu : {dicList[0]['parcours']}")
         print(f"Distance : {dicList[0]['distance']}")
         print(f"Generation : {dicList[0]['generation']}")
+        print()
+            
         plot(meilleurIndividueParGeneration[0])
     
         for v in meilleurIndividueParGeneration[0].parcoursList:
@@ -996,7 +1006,9 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
             individues = mutation(individues)
             individues.sort(key=lambda individu: individu.distance)
             
-            generation = individues
+            generation.extend(individues)
+            generation.sort(key=lambda individu: individu.distance)
+            generation = generation[:50]
             meilleurIndividueParGeneration.append(generation[0])
     
     
@@ -1013,6 +1025,7 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
         print(f"Meilleur individu : {dicList[0]['parcours']}")
         print(f"Distance : {dicList[0]['distance']}")
         print(f"Generation : {dicList[0]['generation']}")
+        print()
         plot(meilleurIndividueParGeneration[0])
     
         for v in meilleurIndividueParGeneration[0].parcoursList:
@@ -1044,7 +1057,11 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
             individues = mutation(individues)
             individues.sort(key=lambda individu: individu.distance)
             
-            generation = individues
+            generation.extend(individues)
+            generation.sort(key=lambda individu: individu.distance)
+            print(f"Censé d'être 100 : {len(generation)}")
+            generation = generation[:50]
+            print(f"Censé d'être 50 : {len(generation)}")
             meilleurIndividueParGeneration.append(generation[0])
     
             count = count + 1
@@ -1060,6 +1077,9 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
         print(f"Meilleur individu : {dicList[0]['parcours']}")
         print(f"Distance : {dicList[0]['distance']}")
         print(f"Generation : {dicList[0]['generation']}")
+        print()
+        for individu in generation:
+            print(individu.parcoursList)
         plot(meilleurIndividueParGeneration[0])
     
         for v in meilleurIndividueParGeneration[0].parcoursList:
@@ -1091,7 +1111,12 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
             individues = mutation(individues)
             individues.sort(key=lambda individu: individu.distance)
             
-            generation = individues
+            generation.extend(individues)
+            generation.sort(key=lambda individu: individu.distance)
+            print(f"Censé d'être 100 : {len(generation)}")
+            generation = generation[:50]
+            print(f"Censé d'être 50 : {len(generation)}")
+            
             meilleurIndividueParGeneration.append(generation[0])
     
             count = count + 1
@@ -1107,6 +1132,9 @@ def trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues):
         print(f"Meilleur individu : {dicList[0]['parcours']}")
         print(f"Distance : {dicList[0]['distance']}")
         print(f"Generation : {dicList[0]['generation']}")
+        print()
+        for individu in generation:
+            print(individu.parcoursList)
         plot(meilleurIndividueParGeneration[0])
     
         for v in meilleurIndividueParGeneration[0].parcoursList:

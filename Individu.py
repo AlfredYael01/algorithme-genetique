@@ -82,27 +82,67 @@ class Individu:
         ville1 = []
         ville2 = []
 
-        # ville1 = self.parcoursList[1]
-        # ville2 = self.parcoursList[5]
-        #
-        # self.parcoursList[1] = ville2
-        # self.parcoursList[5] = ville1
+        if len(self.villes) == 6:
+            ville1 = self.parcoursList[1]
+            ville2 = self.parcoursList[5]
 
-        # ville1 = self.parcoursList[3]
-        # ville2 = self.parcoursList[8]
-        #
-        # self.parcoursList[3] = ville2
-        # self.parcoursList[8] = ville1
+            self.parcoursList[1] = ville2
+            self.parcoursList[5] = ville1
 
-        ville1.append(self.parcoursList[1])
-        ville1.append(self.parcoursList[2])
-        ville2.append(self.parcoursList[18])
-        ville2.append(self.parcoursList[19])
+        elif len(self.villes) == 10:
 
-        self.parcoursList[1] = ville2[0]
-        self.parcoursList[2] = ville2[1]
-        self.parcoursList[18] = ville1[0]
-        self.parcoursList[19] = ville1[1]
+            ville1 = self.parcoursList[3]
+            ville2 = self.parcoursList[8]
+
+            self.parcoursList[3] = ville2
+            self.parcoursList[8] = ville1
+
+        elif len(self.villes) == 20:
+
+            ville1.append(self.parcoursList[1])
+            ville1.append(self.parcoursList[2])
+            ville2.append(self.parcoursList[18])
+            ville2.append(self.parcoursList[19])
+
+            self.parcoursList[1] = ville2[0]
+            self.parcoursList[2] = ville2[1]
+            self.parcoursList[18] = ville1[0]
+            self.parcoursList[19] = ville1[1]
+
+        elif len(self.villes) == 100:
+
+            ville1.append(self.parcoursList[11])
+            ville1.append(self.parcoursList[12])
+            ville1.append(self.parcoursList[13])
+            ville2.append(self.parcoursList[88])
+            ville2.append(self.parcoursList[89])
+            ville2.append(self.parcoursList[90])
+
+            self.parcoursList[11] = ville2[0]
+            self.parcoursList[12] = ville2[1]
+            self.parcoursList[13] = ville2[2]
+            self.parcoursList[88] = ville1[0]
+            self.parcoursList[89] = ville1[1]
+            self.parcoursList[90] = ville1[2]
+
+        elif len(self.villes) == 250:
+
+            ville1.append(self.parcoursList[111])
+            ville1.append(self.parcoursList[112])
+            ville1.append(self.parcoursList[113])
+            ville2.append(self.parcoursList[188])
+            ville2.append(self.parcoursList[189])
+            ville2.append(self.parcoursList[190])
+
+            self.parcoursList[111] = ville2[0]
+            self.parcoursList[112] = ville2[1]
+            self.parcoursList[113] = ville2[2]
+            self.parcoursList[188] = ville1[0]
+            self.parcoursList[189] = ville1[1]
+            self.parcoursList[190] = ville1[2]
+
+        else:
+            print("Nombre de villes incorrect")
 
         self.calculerDistance()
         
