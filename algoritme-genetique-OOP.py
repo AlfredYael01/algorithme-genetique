@@ -2,8 +2,11 @@ import Functions as fc
 import time as time
 # Creation des villes et des coordonnées
 
+nbVilles = 250
+nbGenerations = 100
+
 t1 = time.perf_counter()
-villes, villesStr = fc.creer_villes(250)
+villes, villesStr = fc.creer_villes(nbVilles)
 
 x, y, coordonnees, coordonneesVilles, coordonnesVillesStr = fc.creerCoordonnees(villes, villesStr)
 
@@ -18,12 +21,6 @@ print("Nb individues : ", len(listIndividues))
 print()
 
 # Selection de 50 individues avec les distances le plus courtes
-listIndividues = [individu for individu in listIndividues]
-fc.trouverCheminPlusCourt(1000, 250, listIndividues)
+fc.trouverCheminPlusCourt(nbGenerations, nbVilles, listIndividues)
 t2 = time.perf_counter()
 print(f"Temps du calcul : {t2 - t1}")
-
-
-
-
-
