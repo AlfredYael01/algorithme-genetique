@@ -10,7 +10,6 @@ villes, villesStr = fc.creer_villes(nbVilles)
 
 x, y, coordonnees, coordonneesVilles, coordonnesVillesStr = fc.creerCoordonnees(villes, villesStr)
 
-
 # Creation des premiers 100 individues et tri part distance croissante
 listIndividues = fc.creerIndividues(villes, villesStr, x, y, coordonnees, coordonneesVilles, coordonnesVillesStr)
 listIndividues.sort(key=lambda individu: individu.distance)
